@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.qoobico.remindme.adapter.TabsPagerFragmentAdapter;
+import com.qoobico.remindme.adapter.TabsFragmentAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabs() {
         viewPager = findViewById(R.id.view_pager);
-        TabsPagerFragmentAdapter adapter = new TabsPagerFragmentAdapter(getSupportFragmentManager());
+        TabsFragmentAdapter adapter = new TabsFragmentAdapter(this,getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
@@ -71,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 switch (item.getItemId()){
                     case R.id.actionNotificationItem:
-                        showNatificationTab();
+                        showNotificationTab();
                 }
                 return true;
             }
         });
     }
 
-    private void showNatificationTab(){
+    private void showNotificationTab(){
         viewPager.setCurrentItem(Constants.TAB_TWO);
     }
 }
